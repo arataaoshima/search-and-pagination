@@ -48,7 +48,7 @@ Rails.application.configure do
 	password:              pass,
 	authentication:        'plain',
 	enable_starttls_auto:  true,
-	tls: true
+	#tls: true
 }
 
   # Raises error for missing translations

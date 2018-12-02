@@ -4,6 +4,9 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   
+  # Userクラスを作成していないので、擬似的なUser構造体を作る
+	User = Struct.new(:name, :email)
+
   def index
     #ViewのFormで取得したパラメータをモデルに渡す
     @projects = Project.search(params[:search]).paginate(page: params[:page], per_page: 5)
@@ -28,6 +31,12 @@ class ProjectsController < ApplicationController
   # POST /projects.json
   def create
     @project = Project.new(project_params)
+    
+        # 擬似的なUser構造体を作成する
+      	user = User.new("name", "aoshima.arata@gmail.com")
+
+      	# deliverメソッドを使って、メールを送信する
+      	PostMailer.post_email(user, @project).deliver
 
     respond_to do |format|
       if @project.save

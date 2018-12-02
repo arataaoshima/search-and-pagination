@@ -80,7 +80,10 @@ Rails.application.configure do
   email = ENV['LOGIN_NAME']
   pass = ENV['LOGIN_PASSWORD']
   
- config.action_mailer.delivery_method = :smtp
+　config.action_mailer.delivery_method = :smtp
+　config.action_mailer.raise_delivery_errors = true
+　host = 'quiet-retreat-78843.herokuapp.com'
+　config.action_mailer.default_url_options = { host: host }
   config.action_mailer.smtp_settings = {
 	address:               'smtp.gmail.com',
 	port:      	           587,
@@ -89,7 +92,7 @@ Rails.application.configure do
 	password:              pass,
 	authentication:        'plain',
 	enable_starttls_auto:  true,
-	tls: true
+	#tls: true
 }
   
 end

@@ -39,11 +39,11 @@ Rails.application.configure do
   email = ENV['LOGIN_NAME']
   pass = ENV['LOGIN_PASSWORD']
   
- config.action_mailer.delivery_method = :smtp
+  config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
 	address:               'smtp.gmail.com',
 	port:      	           587,
-	domain:                'example.com',
+	domain:                'gmail.com',
 	user_name:             email,
 	password:              pass,
 	authentication:        'plain',
